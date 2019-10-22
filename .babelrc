@@ -1,0 +1,29 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": "last 2 versions, IE >= 11"
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "env": {
+    "commonjs": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "browsers": "last 2 versions, IE >= 11"
+            }
+          }
+        ],
+        "@babel/preset-typescript"
+      ]
+    }
+  }
+}

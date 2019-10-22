@@ -1,0 +1,72 @@
+{
+  "name": "aerux-promise",
+  "version": "1.0.0",
+  "description": "promise middleware for aerux",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "tslint -p ./tsconfig.json",
+    "build": "npm run build:es & npm run build:commonjs & npm run build:types",
+    "build:es": "babel src -d es --extensions .ts",
+    "build:commonjs": "BABEL_ENV=commonjs babel src -d lib --extensions .ts",
+    "build:types": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kagawagao/aerux-promise.git"
+  },
+  "keywords": [
+    "middleware",
+    "aerux",
+    "redux",
+    "redux-middleware"
+  ],
+  "files": [
+    "es",
+    "lib",
+    "index.d.ts"
+  ],
+  "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kagawagao/aerux-promise/issues"
+  },
+  "homepage": "https://github.com/kagawagao/aerux-promise#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/is-promise": "^2.1.0",
+    "@types/jest": "^24.0.19",
+    "babel-jest": "^24.9.0",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "redux": "^4.0.4",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "flux-standard-action": "^2.1.1",
+    "is-promise": "^2.1.0"
+  },
+  "peerDependencies": {
+    "redux": "^4.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
