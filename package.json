@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "BABEL_ENV=test jest",
     "lint": "tslint -p ./tsconfig.json",
     "build": "npm run build:es & npm run build:commonjs & npm run build:types",
     "build:es": "babel src -d es --extensions .ts",
@@ -35,9 +35,10 @@
   "homepage": "https://github.com/kagawagao/aerux-promise#readme",
   "devDependencies": {
     "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
+    "@babel/runtime": "^7.6.3",
     "@types/is-promise": "^2.1.0",
     "@types/jest": "^24.0.19",
     "babel-jest": "^24.9.0",
