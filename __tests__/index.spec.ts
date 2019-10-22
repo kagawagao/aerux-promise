@@ -50,4 +50,14 @@ describe('Promise Middleware', () => {
     expect(baseDispatch).toHaveBeenCalledTimes(1)
     expect(baseDispatch.mock.calls[0][0].error).toBe(true)
   })
+
+  it('promise middleware should work well with no standard flux action', async () => {
+    await dispatch(Promise.resolve(1))
+
+    expect(baseDispatch).toHaveBeenCalledTimes(1)
+
+    dispatch(1)
+
+    expect(baseDispatch).toHaveBeenCalledTimes(2)
+  })
 })
